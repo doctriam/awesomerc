@@ -1,0 +1,4 @@
+#!/bin/sh
+
+matlab -desktop &
+brave --new-window https://kennesaw.view.usg.edu/d2l/le/content/1923599/Home

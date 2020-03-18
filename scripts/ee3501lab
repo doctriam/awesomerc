@@ -1,0 +1,8 @@
+#!/bin/sh
+
+brave --new-window https://ide.mbed.com/compiler &
+brave --new-window https://kennesaw.view.usg.edu/d2l/le/content/1923613/Home &
+brave --new-window https://os.mbed.com/platforms/ST-Discovery-L476VG/ &
+
+exit 0 
+
