@@ -372,6 +372,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift" }, "s", function () awful.util.spawn("xfce4-screenshooter -r -c") end,
               {description = "select screenshot region", group = "_screenshot"}),
 
+    -- MONITOR CONTROL
+    awful.key({ }, "F8", function () awful.util.spawn_with_shell("~/.config/awesome/scripts/laptopmode.sh") end,
+              {description = "laptop mode", group = "_monitors"}),
+    awful.key({ modkey }, "F8", function () awful.util.spawn_with_shell("~/.config/awesome/scripts/dualmonitormode.sh") end,
+              {description = "dual monitor mode", group = "_monitors"}),
+
     -- CUSTOM SCRIPTS
     awful.key({ modkey,  }, "F1", function () awful.util.spawn_with_shell("~/.config/awesome/scripts/ee3501lab") end,
               {description = "EE 3501:  Lab", group = "_custom_scripts"}),

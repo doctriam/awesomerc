@@ -23,6 +23,8 @@ caring what other stuff was running underneath it all.
 * i3lock lockscreen (MOD + l)
 * system hibernate (MOD + z)
 * xfce4-screenshooter (MOD + Shift + s)
+* laptop monitor switch (F8): single monitor, auto-sized
+* dual-monitor mode (MOD + F8): laptop monitor & 3840x2160
 * custom scripts for school
 
 #### Autostart Programs:
