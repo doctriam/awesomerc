@@ -4,6 +4,7 @@
 Made more changes to rc.lua and other stuff.  Kind of lost track of all the
 customizations, but here's what I could find.
 ![Desktop03222020](screenshots/desktop03222020.png)
+![Desktop03222020](screenshots/desktop03222020.png)
 
 #### Screenshot:
 1920x1080 + 4K
