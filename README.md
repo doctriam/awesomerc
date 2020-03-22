@@ -1,5 +1,30 @@
 # Awesome Config
 
+###Update(03/22/2020):
+Made more changes to rc.lua and other stuff.  Kind of lost track of all the
+customizations, but here's what I could find.
+
+#### Widgets:
+* [brightnessarc-widget](https://github.com/streetturtle/awesome-wm-widgets/tree/master/brightnessarc-widget)
+
+#### Available Layouts:
+* Tile
+* Tile Left
+* Fair
+* Fair Horizontal
+
+#### Shortcuts:
+![help_menu](screenshots/help_menu.png)
+
+#### Other Changes:
+* General reorginazing of rc.lua code for readability
+* Moved systray to be adjacent to the clock
+* Removed launcher menu items as they served no purpose for me
+
+
+
+
+###Update(03/17/2022):
 #### Manjaro XFCE Community Edition
 I installed [Awesome
 WM](https://www.archlinux.org/packages/community/x86_64/awesome/) on a system running Manjaro XFCE Community Edition.
