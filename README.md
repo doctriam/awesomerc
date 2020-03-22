@@ -3,6 +3,7 @@
 ### Update(03/22/2020):
 Made more changes to rc.lua and other stuff.  Kind of lost track of all the
 customizations, but here's what I could find.
+![Desktop03222020](screenshots/desktop03222020.png)
 
 #### Screenshot:
 1920x1080 + 4K
@@ -24,6 +25,7 @@ customizations, but here's what I could find.
 * General reorginazing of rc.lua code for readability
 * Moved systray to be adjacent to the clock
 * Removed launcher menu items as they served no purpose for me
+* Changed taglist, tasklist, and prompt styles and layout
 
 
 
