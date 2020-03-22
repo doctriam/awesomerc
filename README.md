@@ -11,6 +11,7 @@ customizations, but here's what I could find.
 
 #### Widgets:
 * [brightnessarc-widget](https://github.com/streetturtle/awesome-wm-widgets/tree/master/brightnessarc-widget)
+* [deficient/calendar](https://github.com/deficient/calendar)
 
 #### Available Layouts:
 * Tile
@@ -26,8 +27,9 @@ customizations, but here's what I could find.
 * Moved systray to be adjacent to the clock
 * Removed launcher menu items as they served no purpose for me
 * Changed taglist, tasklist, and prompt styles and layout
-
-
+* Made titlebar transparent
+* Removed Awesome icon
+* Moved zenburn theme folder under user ~/.config/awesome/themes
 
 
 ### Update(03/17/2022):

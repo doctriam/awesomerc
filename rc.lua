@@ -19,6 +19,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local battery_widget = require("battery-widget.batteryarc")
 local volume_widget = require("volumearc-widget.volumearc")
 local brightness_widget = require("brightnessarc-widget.brightnessarc")
+local calendar = require("calendar")
 -- Custom Controls
 local volume_control = require("volume-control")
 
@@ -53,7 +54,7 @@ end
 
 -- VARIABLES ----------------------------------------------------------------- 
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
+beautiful.init("/home/doctriam/.config/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xfce4-terminal"
@@ -113,7 +114,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- WIBAR CONFIGURATION -------------------------------------------------------
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
-
+calendar({}):attach(mytextclock)
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -243,7 +244,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "top", screen = s, bg = '#11111100' })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -251,7 +252,9 @@ awful.screen.connect_for_each_screen(function(s)
         expand = "none",
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            -- mylauncher,
+            s.mylayoutbox,
+            wibox.widget.textbox("   "),
             s.mytasklist,
             wibox.widget.textbox("   "),
             s.mypromptbox,
@@ -281,7 +284,6 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
             mytextclock,
             wibox.widget.textbox(" "),
-            s.mylayoutbox,
         },
     }
 end)
