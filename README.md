@@ -3,7 +3,7 @@
 ### Update(03/22/2020):
 Made more changes to rc.lua and other stuff.  Kind of lost track of all the
 customizations, but here's what I could find.
-![Desktop03222020](screenshots/desktop03222020.png)
+![Desktop03222020a](screenshots/desktop03222020a.png)
 ![Desktop03222020](screenshots/desktop03222020.png)
 
 #### Screenshot:
