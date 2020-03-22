@@ -60,11 +60,6 @@ terminal = "xfce4-terminal"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 volumecfg = volume_control({})
--- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
 -- LAYOUTS -------------------------------------------------------------------
@@ -103,6 +98,7 @@ awful.layout.layouts = {
 --                                     { "open terminal", terminal }
 --                                   }
 --                         })
+
 mymainmenu = awful.menu()
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -260,8 +256,8 @@ globalkeys = gears.table.join(
     -- SYSTEM
     awful.key({ modkey }, "s", hotkeys_popup.show_help,
               {description="keyboard shortcuts", group="_System"}),
-    awful.key({ modkey, "Shift"  }, "w", function () mymainmenu:show() end,
-              {description = "main menu", group = "_System"}),
+    -- awful.key({ modkey, "Shift"  }, "w", function () mymainmenu:show() end,
+    --           {description = "main menu", group = "_System"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "_System"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -290,13 +286,13 @@ globalkeys = gears.table.join(
               {description = "Brave Browser", group = "_Programs"}),
     awful.key({ modkey }, "F12", function () awful.util.spawn("barrier") end,
               {description = "Barrier [wireless KVM]", group = "_Programs"}),
+    awful.key({ modkey },  "f",     function () awful.util.spawn("thunar") end,
+              {description = "thunar file manager", group = "_Programs"}),
         -- Run
     awful.key({ modkey, "Control" }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "_Programs"}),
     awful.key({ modkey }, "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "_Programs"}),
-    awful.key({ modkey },  "f",     function () awful.util.spawn("thunar") end,
-              {description = "thunar file manager", group = "_Programs"}),
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {

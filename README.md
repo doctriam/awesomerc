@@ -4,6 +4,10 @@
 Made more changes to rc.lua and other stuff.  Kind of lost track of all the
 customizations, but here's what I could find.
 
+#### Screenshot:
+1920x1080 + 4K
+![Desktop](screenshots/desktop.png)
+
 #### Widgets:
 * [brightnessarc-widget](https://github.com/streetturtle/awesome-wm-widgets/tree/master/brightnessarc-widget)
 
