@@ -1,6 +1,6 @@
 # Awesome Config
 
-###Update(03/22/2020):
+### Update(03/22/2020):
 Made more changes to rc.lua and other stuff.  Kind of lost track of all the
 customizations, but here's what I could find.
 
@@ -24,7 +24,7 @@ customizations, but here's what I could find.
 
 
 
-###Update(03/17/2022):
+### Update(03/17/2022):
 #### Manjaro XFCE Community Edition
 I installed [Awesome
 WM](https://www.archlinux.org/packages/community/x86_64/awesome/) on a system running Manjaro XFCE Community Edition.
