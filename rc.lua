@@ -107,7 +107,6 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 
-
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
@@ -328,6 +327,8 @@ globalkeys = gears.table.join(
               {description = "terminal", group = "_Programs"}),
     awful.key({ modkey }, "p", function () awful.util.spawn("pamac-manager") end,
               {description = "pamac manager", group = "_Programs"}),
+    awful.key({ modkey }, "v", function () awful.util.spawn("pavucontrol") end,
+              {description = "pulse audio sound", group = "_System"}),
     awful.key({ modkey }, "b", function () awful.util.spawn("brave") end,
               {description = "Brave Browser", group = "_Programs"}),
     awful.key({ modkey }, "F12", function () awful.util.spawn("barrier") end,
@@ -541,7 +542,7 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
      }
     },
 
@@ -593,7 +594,9 @@ client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
     -- if not awesome.startup then awful.client.setslave(c) end
-
+    c.shape = function (cr,w,h)
+        gears.shape.rounded_rect(cr,w,h,20)
+    end
     if awesome.startup
       and not c.size_hints.user_position
       and not c.size_hints.program_position then

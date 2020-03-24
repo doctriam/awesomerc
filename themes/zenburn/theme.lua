@@ -23,11 +23,10 @@ theme.bg_normal  = "#3F3F3F"
 theme.bg_focus   = "#1E2320"
 theme.bg_urgent  = "#3F3F3F"
 theme.bg_systray = theme.bg_normal
-theme.opacity    = 0
 -- }}}
 
 -- {{{ Borders
-theme.useless_gap   = dpi(5)
+theme.useless_gap   = dpi(10)
 theme.border_width  = dpi(0)
 theme.border_normal = "#3F3F3F"
 theme.border_focus  = "#6F6F6F"
