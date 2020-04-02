@@ -264,6 +264,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             --mykeyboardlayout
+            mytextclock,
             wibox.widget.textbox(" "),
             brightness_widget({
                 color = '#f7ef00'
@@ -283,8 +284,6 @@ awful.screen.connect_for_each_screen(function(s)
             }),
             wibox.widget.textbox(" "),
             wibox.widget.systray(),
-            mytextclock,
-            wibox.widget.textbox(" "),
         },
     }
 end)
