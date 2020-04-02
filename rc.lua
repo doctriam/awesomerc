@@ -54,7 +54,7 @@ end
 
 -- VARIABLES ----------------------------------------------------------------- 
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/home/doctriam/.config/awesome/themes/zenburn/theme.lua")
+beautiful.init("/home/khaynie3/.config/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xfce4-terminal"
@@ -369,9 +369,9 @@ globalkeys = gears.table.join(
         {description = "Client: focus next", group = "client"}),
     awful.key({ modkey }, "k", function () awful.client.focus.byidx(-1) end,
         {description = "Client: focus previous", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
+    awful.key({ modkey, "Control"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "Client: move next", group = "_Navigation"}),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
+    awful.key({ modkey, "Control"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "Client: move previous", group = "_Navigation"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "Client: jump to urgent", group = "_Navigation"}),
@@ -478,7 +478,7 @@ for i = 1, 9 do
                   end,
                   {description = "navigate to tag #", group = "tag"}),
         -- Toggle tag display.
-        awful.key({ modkey, "Control" }, "#" .. i + 9,
+        awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
                       local screen = awful.screen.focused()
                       local tag = screen.tags[i]
@@ -488,7 +488,7 @@ for i = 1, 9 do
                   end,
                   {description = "toggle tag #", group = "tag"}),
         -- Move client to tag.
-        awful.key({ modkey, "Shift" }, "#" .. i + 9,
+        awful.key({ modkey, "Control" }, "#" .. i + 9,
                   function ()
                       if client.focus then
                           local tag = client.focus.screen.tags[i]

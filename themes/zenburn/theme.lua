@@ -3,12 +3,12 @@
 --    By Adrian C. (anrxc)   --
 -------------------------------
 
-local themes_path = "/home/doctriam/.config/awesome/themes/"
+local themes_path = "/home/khaynie3/.config/awesome/themes/"
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- {{{ Main
 local theme = {}
-theme.wallpaper = themes_path .. "zenburn/zenburn-background.png"
+theme.wallpaper = themes_path .. "zenburn/zenburn-background3.jpg"
 -- }}}
 
 -- {{{ Styles
