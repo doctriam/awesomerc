@@ -1,5 +1,21 @@
 # Awesome Config
 
+### Update(04/02/2020):
+Swapping over to Manjaro + Awesome on my work computer.  Made some changes to
+that end.  Trying to move to automating as much of the installation as possible
+in case I switch from test laptop to a newer one.
+
+#### User Directory in Lua:
+* Recoded my rc.lua and theme.lua to point to user directory automatically
+  instead of requiring manual changing of path in code.
+
+#### Wallpaper:
+* Added second wallpaper and a script to swap them easily
+
+#### Shortcuts:
+* Made all movement of windows (in layout, between tags/monitors) use MOD +
+  CTRL
+
 ### Update(03/22/2020):
 Made more changes to rc.lua and other stuff.  Kind of lost track of all the
 customizations, but here's what I could find.

@@ -22,6 +22,8 @@ local brightness_widget = require("brightnessarc-widget.brightnessarc")
 local calendar = require("calendar")
 -- Custom Controls
 local volume_control = require("volume-control")
+-- Custom Theme
+local custom_theme = require("themes.zenburn.theme")
 
 -- HOTKEYS REQUIREMENT -------------------------------------------------------
 -- Enable hotkeys help widget for VIM and other apps
@@ -54,7 +56,7 @@ end
 
 -- VARIABLES ----------------------------------------------------------------- 
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/home/khaynie3/.config/awesome/themes/zenburn/theme.lua")
+beautiful.init(custom_theme)
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xfce4-terminal"
@@ -66,13 +68,13 @@ modkey = "Mod4"
 -- LAYOUTS -------------------------------------------------------------------
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    -- awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
-    -- awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.floating,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
@@ -318,6 +320,8 @@ globalkeys = gears.table.join(
               {description = "laptop mode", group = "_System"}),
     awful.key({ modkey }, "F8", function () awful.util.spawn_with_shell("~/.config/awesome/scripts/dualmonitormode.sh") end,
               {description = "dual monitor mode", group = "_System"}),
+    awful.key({ modkey, "Control" }, "F8", function () awful.util.spawn_with_shell("~/.config/awesome/scripts/dualmonitormode2.sh") end,
+              {description = "dual monitor mode (work)", group = "_System"}),
     awful.key({}, "XF86AudioRaiseVolume", function() volumecfg:up() end),
     awful.key({}, "XF86AudioLowerVolume", function() volumecfg:down() end),
     awful.key({}, "XF86AudioMute", function() volumecfg:toggle() end),
