@@ -320,8 +320,6 @@ globalkeys = gears.table.join(
               {description = "laptop mode", group = "_System"}),
     awful.key({ modkey }, "F8", function () awful.util.spawn_with_shell("~/.config/awesome/scripts/dualmonitormode.sh") end,
               {description = "dual monitor mode", group = "_System"}),
-    awful.key({ modkey, "Control" }, "F8", function () awful.util.spawn_with_shell("~/.config/awesome/scripts/dualmonitormode2.sh") end,
-              {description = "dual monitor mode (work)", group = "_System"}),
     awful.key({}, "XF86AudioRaiseVolume", function() volumecfg:up() end),
     awful.key({}, "XF86AudioLowerVolume", function() volumecfg:down() end),
     awful.key({}, "XF86AudioMute", function() volumecfg:toggle() end),
