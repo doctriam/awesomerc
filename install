@@ -1,0 +1,11 @@
+#!/bin/bash
+# Finish Awesome WM installation 
+
+# -------------- Install Awesome WM Config ------------------------------------
+rm -r ~/.config/awesome/calendar -v
+rm -r ~/.config/awesome/volume-control -v
+git clone https://github.com/deficient/calendar ~/.config/awesome/calendar
+git clone https://github.com/deficient/volume-control \
+    ~/.config/awesome/volume-control
+# -----------------------------------------------------------------------------
+

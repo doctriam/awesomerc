@@ -1,5 +1,21 @@
 # Awesome Config
 
+###Installation:
+On an installation of Manjaro XFCE, install awesome and git:
+```
+sudo pacman -S awesome git --noconfirm
+```
+
+Once Awesome WM and Git are installed, download this profile and run the
+installer.  The installer just fixes a couple of issues with empty plugin
+folders:
+```
+git clone https://github.com/doctriam/awesomerc ~/.config/awesome
+./install
+```
+
+That should be it.
+
 ### Update(04/02/2020):
 Swapping over to Manjaro + Awesome on my work computer.  Made some changes to
 that end.  Trying to move to automating as much of the installation as possible
