@@ -1,6 +1,6 @@
 # Awesome Config
 
-###Installation:
+### Installation:
 On an installation of Manjaro XFCE, install awesome and git:
 ```
 sudo pacman -S awesome git --noconfirm
