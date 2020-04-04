@@ -308,7 +308,7 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "_System"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "logout", group = "_System"}),
-    awful.key({ modkey }, "l", function () awful.util.spawn_with_shell("i3lock -i ~/.config/awesome/lockscreen.png -t") end,
+    awful.key({ modkey }, "l", function () awful.util.spawn_with_shell("~/.config/awesome/scripts/lock.sh") end,
               {description = "lock system", group = "_System"}),
     awful.key({ modkey }, "z", function () awful.util.spawn_with_shell("~/.config/awesome/scripts/hibernate.sh") end,
               {description = "suspend system", group = "_System"}),
@@ -659,3 +659,4 @@ awful.util.spawn("xcompmgr -C")
 awful.util.spawn("xfce4-clipman")
 awful.util.spawn("blueman-applet")
 awful.util.spawn("nm-applet")
+awful.util.spawn_with_shell("~/.config/awesome/scripts/monitor.sh")

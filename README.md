@@ -1,4 +1,6 @@
 # Awesome Config
+![Desktop4k](screenshots/desktop4k.png)
+![DesktopHD](screenshots/desktopHD.png)
 
 ### Installation:
 On an installation of Manjaro XFCE, install awesome and git:
