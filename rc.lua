@@ -54,10 +54,10 @@ do
     end)
 end
 
--- VARIABLES ----------------------------------------------------------------- 
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(custom_theme)
 
+-- VARIABLES ----------------------------------------------------------------- 
 -- This is used later as the default terminal and editor to run.
 terminal = "xfce4-terminal"
 editor = os.getenv("EDITOR") or "vim"
@@ -68,9 +68,9 @@ modkey = "Mod4"
 -- LAYOUTS -------------------------------------------------------------------
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.fair,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
+    awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.floating,
     -- awful.layout.suit.tile.bottom,
@@ -205,7 +205,7 @@ awful.screen.connect_for_each_screen(function(s)
 
         },
     }
-
+    
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
@@ -243,6 +243,12 @@ awful.screen.connect_for_each_screen(function(s)
             widget = wibox.container.background,
         },
     }
+    
+    awful.screen.connect_for_each_screen(function(s)
+            s.systray = wibox.widget.systray()
+            s.systray.visible = true
+        end
+    )
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s, bg = '#11111100' })
@@ -283,7 +289,7 @@ awful.screen.connect_for_each_screen(function(s)
                 arc_thickness = 3,
             }),
             wibox.widget.textbox(" "),
-            wibox.widget.systray(),
+            s.systray,
         },
     }
 end)
@@ -317,6 +323,10 @@ globalkeys = gears.table.join(
               {description = "select screenshot region", group = "_System"}),
     awful.key({ }, "F8", function () awful.util.spawn_with_shell("~/.config/awesome/scripts/monitor.sh") end,
               {description = "monitor auto-detect", group = "_System"}),
+    awful.key({ modkey }, "=", function ()
+              awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
+          end,
+              {description = "toggle system tray", group = "_System"}),
     awful.key({}, "XF86AudioRaiseVolume", function() volumecfg:up() end),
     awful.key({}, "XF86AudioLowerVolume", function() volumecfg:down() end),
     awful.key({}, "XF86AudioMute", function() volumecfg:toggle() end),
@@ -407,14 +417,7 @@ globalkeys = gears.table.join(
                     )
                   end
               end,
-              {description = "restore minimized", group = "client"}),
-
-    -- Workflows
-    awful.key({ modkey,  }, "F1", function () awful.util.spawn_with_shell("~/.config/awesome/scripts/ee3501lab") end,
-              {description = "EE 3501:  Lab", group = "workflows"}),
-    awful.key({ modkey,  }, "F2", function () awful.util.spawn_with_shell("~/.config/awesome/scripts/ee3702proj") end,
-              {description = "EE 3702:  Project", group = "workflows"})
-
+              {description = "restore minimized", group = "client"})
 )
 
 clientkeys = gears.table.join(
