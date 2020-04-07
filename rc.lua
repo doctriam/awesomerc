@@ -280,7 +280,7 @@ awful.screen.connect_for_each_screen(function(s)
         },
         bg = beautiful.border_normal,
         shape_border_width = 3,
-        shape_border_color = "#777777",
+        shape_border_color = "#93e0e3",
         shape = gears.shape.rounded_rect,
         shape_clilp = true,
         widget = wibox.container.background,
