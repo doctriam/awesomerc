@@ -24,7 +24,7 @@ local calendar = require("widgets.calendar")
 local volume_control = require("widgets.volume-control")
 -- Custom Theme
 local custom_theme = require("themes.zenburn.theme")
-
+local mysystray
 -- HOTKEYS REQUIREMENT -------------------------------------------------------
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -244,11 +244,48 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
     
+--   awful.screen.connect_for_each_screen(function(s)
+--        s.systray = wibox.widget {
+--            {
+--                wibox.widget.systray(),
+--                left = 10,
+--                top = 2, 
+--                bottom = 2,
+--                right = 10,
+--                widget = wibox.container.margin,
+--            },
+--            bg = "#ff0000",
+--            shape = gears.shape.rounded_rect,
+--            shape_clip = true,
+--            widget = wibox.container.background,
+--        }
+--            s.systray.visible = true
+--        end
+--    )
+    
     awful.screen.connect_for_each_screen(function(s)
             s.systray = wibox.widget.systray()
             s.systray.visible = true
         end
     )
+    mysystray = wibox.widget {
+        {
+            s.systray,
+            left = 12.5,
+            top = 2,
+            bottom = 2,
+            right = 12.5,
+            visible = true,
+            widget = wibox.container.margin,
+        },
+        bg = beautiful.border_normal,
+        shape_border_width = 3,
+        shape_border_color = "#777777",
+        shape = gears.shape.rounded_rect,
+        shape_clilp = true,
+        widget = wibox.container.background,
+    }
+    
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s, bg = '#11111100' })
@@ -289,7 +326,7 @@ awful.screen.connect_for_each_screen(function(s)
                 arc_thickness = 3,
             }),
             wibox.widget.textbox(" "),
-            s.systray,
+            mysystray,
         },
     }
 end)
