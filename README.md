@@ -3,6 +3,7 @@
 ![DesktopHD](screenshots/desktopHD.png)
 
 ### Installation:
+##DO NOT USE YET: STILL BEING MODIFIED
 On an installation of Manjaro XFCE, install awesome and git:
 ```
 sudo pacman -S awesome git --noconfirm
