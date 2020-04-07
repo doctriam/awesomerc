@@ -16,12 +16,12 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Custom Widgets
-local battery_widget = require("battery-widget.batteryarc")
-local volume_widget = require("volumearc-widget.volumearc")
-local brightness_widget = require("brightnessarc-widget.brightnessarc")
-local calendar = require("calendar")
+local battery_widget = require("widgets.battery-widget.batteryarc")
+local volume_widget = require("widgets.volumearc-widget.volumearc")
+local brightness_widget = require("widgets.brightnessarc-widget.brightnessarc")
+local calendar = require("widgets.calendar")
 -- Custom Controls
-local volume_control = require("volume-control")
+local volume_control = require("widgets.volume-control")
 -- Custom Theme
 local custom_theme = require("themes.zenburn.theme")
 
