@@ -1,0 +1,44 @@
+#!/bin/bash
+# Installer for packages from pacman
+
+# -------------- Pacman: Install Recommended Software -------------------------
+echo "#-------------- Pacman: Install Recommended Software------------------\n"
+packages=(
+blueman
+brave
+cmake
+i3lock
+imagemagick
+scrot
+sddm
+thunar
+viewnior
+vim
+xclip
+xcompmgr
+xfce4-terminal
+)
+
+for pkg in "${packages[@]}"
+do {
+        if sudo pacman -Qi $pkg > /dev/null 2>&1 ; then
+            echo -en "$pkg already installed\n"
+        else
+            echo -en "Installing $pkg...\n"
+            sudo pacman -S $pkg --noconfirm > /dev/null
+            if pacman -Qi $pkg > /dev/null 2>&1
+            then
+                echo -en "$pkg is now installed\n"
+            else
+                echo -en "Installing $pkg FAILED\n"
+                deps = 1
+            fi
+        fi
+}
+done
+[[ $deps -ne 1  ]] && echo -en "\nSoftware installation complete\n" || { 
+    echo -en "\nCheck for FAILED packages\n";exit 1; 
+}
+echo "#----------END: Install From Pacman-----------------------------------\n"
+echo -en "\n"
+# -----------------------------------------------------------------------------
