@@ -12,6 +12,7 @@ local wibox = require("wibox")
 local watch = require("awful.widget.watch")
 local spawn = require("awful.spawn")
 local beautiful = require("beautiful")
+local naughty = require("naughty")
 
 local PATH_TO_ICON = "/usr/share/icons/Arc/status/symbolic/display-brightness-symbolic.svg"
 local GET_BRIGHTNESS_CMD = "light -G" -- "xbacklight -get"
@@ -66,7 +67,22 @@ local function worker(args)
         end
     end)
 
-    watch(get_brightness_cmd, 1, update_widget, widget)
+    watch(get_brightness_cmd, 2, update_widget, widget)
+
+    local notification
+
+    widget:connect_signal("mouse::enter", function()
+        naughty.destroy(notification)
+        notification = naughty.notify {
+            text = "Brightness",
+            timeout = 5,
+            hover_timeout = 0.1,
+        }
+    end)
+
+    widget:connect_signal("mouse::leave", function()
+        naughty.destroy(notification)
+    end)
 
     return widget
 end

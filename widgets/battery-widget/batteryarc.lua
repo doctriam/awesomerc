@@ -148,9 +148,7 @@ local function worker(args)
                     notification = naughty.notify {
                         text = stdout,
                         title = "Battery status",
-                        timeout = 5,
-                        hover_timeout = 0.5,
-                        width = 200,
+                        hover_timeout = 0.1,
                     }
                 end)
     end

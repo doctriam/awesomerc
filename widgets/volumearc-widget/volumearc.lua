@@ -13,6 +13,7 @@ local beautiful = require("beautiful")
 local spawn = require("awful.spawn")
 local watch = require("awful.widget.watch")
 local wibox = require("wibox")
+local naughty = require("naughty")
 
 local GET_VOLUME_CMD = 'amixer -D pulse sget Master'
 local INC_VOLUME_CMD = 'amixer -D pulse sset Master 5%+'
@@ -81,6 +82,21 @@ local function worker(args)
     end)
 
     watch(get_volume_cmd, 1, update_graphic, volumearc)
+
+    local notification
+
+    volumearc:connect_signal("mouse::enter", function()
+        naughty.destroy(notification)
+        notification = naughty.notify {
+            text = "Volume",
+            timeout = 5,
+            hover_timout = 0.1,
+        }
+    end)
+
+    volumearc:connect_signal("mouse::leave", function()
+        naughty.destroy(notification)
+    end)
 
     return volumearc
 end

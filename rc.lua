@@ -280,7 +280,7 @@ awful.screen.connect_for_each_screen(function(s)
         },
         bg = beautiful.border_normal,
         shape_border_width = 3,
-        shape_border_color = "#93e0e3",
+        shape_border_color = "#dfdfdf",
         shape = gears.shape.rounded_rect,
         shape_clilp = true,
         widget = wibox.container.background,
@@ -309,19 +309,19 @@ awful.screen.connect_for_each_screen(function(s)
             --mykeyboardlayout
             mytextclock,
             wibox.widget.textbox(" "),
-            brightness_widget({
-                color = '#f7ef00'
-            }),
-            wibox.widget.textbox(" "),
             volume_widget({
-                main_color = '#af13f7',
+                main_color = '#dfdfdf',
                 mute_color = '#ff0000',
                 thickness = 3,
                 height = 24,
             }),
             wibox.widget.textbox(" "),
+            brightness_widget({
+                color = '#dfdfdf'
+            }),
+            wibox.widget.textbox(" "),
             battery_widget({
-                main_color = '#00ff00',
+                main_color = '#dfdfdf',
                 show_current_level = true,
                 arc_thickness = 3,
             }),
