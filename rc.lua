@@ -272,8 +272,8 @@ awful.screen.connect_for_each_screen(function(s)
         {
             s.systray,
             left = 12.5,
-            top = 2,
-            bottom = 2,
+            top = 3,
+            bottom = 3,
             right = 12.5,
             visible = true,
             widget = wibox.container.margin,
