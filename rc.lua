@@ -19,7 +19,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local battery_widget = require("widgets.battery-widget.batteryarc")
 local volume_widget = require("widgets.volumearc-widget.volumearc")
 local brightness_widget = require("widgets.brightnessarc-widget.brightnessarc")
-local calendar = require("widgets.calendar")
 -- Custom Theme
 local custom_theme = require("themes.zenburn.theme")
 local mysystray
@@ -110,9 +109,6 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- WIBAR CONFIGURATION -------------------------------------------------------
--- Create a textclock widget
-mytextclock = wibox.widget.textclock()
-calendar({}):attach(mytextclock)
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -283,6 +279,14 @@ awful.screen.connect_for_each_screen(function(s)
         widget = wibox.container.background,
     }
     
+    -- Create clock with calendar pop-up
+    local mytextclock = wibox.widget.textclock()
+    local month_calendar = awful.widget.calendar_popup.month({
+        start_sunday = true,
+        long_weekdays = true,
+        margin = 2
+    })
+    month_calendar:attach( mytextclock, "tr")
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s, bg = '#11111100' })
