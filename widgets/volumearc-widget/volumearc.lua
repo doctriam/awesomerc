@@ -83,6 +83,7 @@ local function worker(args)
 
     watch(get_volume_cmd, 1, update_graphic, volumearc)
 
+    -- Create volume icon label
     local notification
 
     volumearc:connect_signal("mouse::enter", function()

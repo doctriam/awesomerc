@@ -20,8 +20,6 @@ local battery_widget = require("widgets.battery-widget.batteryarc")
 local volume_widget = require("widgets.volumearc-widget.volumearc")
 local brightness_widget = require("widgets.brightnessarc-widget.brightnessarc")
 local calendar = require("widgets.calendar")
--- Custom Controls
-local volume_control = require("widgets.volume-control")
 -- Custom Theme
 local custom_theme = require("themes.zenburn.theme")
 local mysystray
@@ -62,7 +60,6 @@ beautiful.init(custom_theme)
 terminal = "xfce4-terminal"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
-volumecfg = volume_control({})
 modkey = "Mod4"
 
 -- LAYOUTS -------------------------------------------------------------------
@@ -364,9 +361,9 @@ globalkeys = gears.table.join(
               awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
           end,
               {description = "toggle system tray", group = "_System"}),
-    awful.key({}, "XF86AudioRaiseVolume", function() volumecfg:up() end),
-    awful.key({}, "XF86AudioLowerVolume", function() volumecfg:down() end),
-    awful.key({}, "XF86AudioMute", function() volumecfg:toggle() end),
+    awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("amixer -D pulse sset Master 5%+") end),
+    awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("amixer -D pulse sset Master 5%-") end),
+    awful.key({}, "XF86AudioMute", function() awful.spawn("amixer -D pulse sset Master toggle") end),
     
     -- PROGRAMS
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
