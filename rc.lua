@@ -298,8 +298,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             -- mylauncher,
-            s.mylayoutbox,
-            wibox.widget.textbox("   "),
+            wibox.widget.textbox(" "),
             s.mytasklist,
             wibox.widget.textbox("   "),
             s.mypromptbox,
@@ -328,6 +327,8 @@ awful.screen.connect_for_each_screen(function(s)
             }),
             wibox.widget.textbox(" "),
             mysystray,
+            wibox.widget.textbox(" "),
+            s.mylayoutbox,
         },
     }
 end)
