@@ -34,6 +34,10 @@ local function worker(args)
 
     local warning_msg_title = args.warning_msg_title or 'BATTERY WARNING:'
     local warning_msg_text = args.warning_msg_text or 'Battery is low.'
+    local enable_battery_warning = args.enable_battery_warning
+    if enable_battery_warning == nil then
+        enable_battery_warning = true
+    end
     local charge
 
     local text = wibox.widget {

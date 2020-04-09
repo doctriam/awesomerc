@@ -4,19 +4,21 @@
 # -------------- Pacman: Install Recommended Software -------------------------
 echo "#-------------- Pacman: Install Recommended Software------------------\n"
 packages=(
-blueman
-brave
-cmake
-i3lock
-imagemagick
-scrot
-sddm
-thunar
-viewnior
-vim
-xclip
-xcompmgr
-xfce4-terminal
+    arc-icon-theme
+    blueman
+    brave
+    cmake
+    i3lock
+    imagemagick
+    light
+    scrot
+    sddm
+    thunar
+    viewnior
+    vim
+    xclip
+    xcompmgr
+    xfce4-terminal
 )
 
 for pkg in "${packages[@]}"
