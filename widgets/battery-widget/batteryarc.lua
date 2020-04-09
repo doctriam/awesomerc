@@ -32,10 +32,9 @@ local function worker(args)
     local medium_level_color = args.medium_level_color or '#c0ca33'
     local charging_color = args.charging_color or '#43a047'
 
-    local warning_msg_title = args.warning_msg_title or 'Houston, we have a problem'
-    local warning_msg_text = args.warning_msg_text or 'Battery is dying'
-    local warning_msg_position = args.warning_msg_position or 'bottom_right'
-    local warning_msg_icon = args.warning_msg_icon or HOME .. '/.config/awesome/awesome-wm-widgets/batteryarc-widget/spaceman.jpg'
+    local warning_msg_title = args.warning_msg_title or 'BATTERY WARNING:'
+    local warning_msg_text = args.warning_msg_text or 'Battery is low.'
+    local charge
 
     local text = wibox.widget {
         id = "txt",
@@ -83,7 +82,7 @@ local function worker(args)
                     capacity = capacity + cap
                 end
 
-                local charge = 0
+                charge = 0
                 local status
                 for i, batt in ipairs(battery_info) do
                     if batt.charge >= charge then
@@ -139,35 +138,20 @@ local function worker(args)
             widget)
 
     -- Popup with battery info
-    -- One way of creating a pop-up notification - naughty.notify
     local notification
-    function show_battery_status()
-        awful.spawn.easy_async([[bash -c 'acpi']],
-                function(stdout, _, _, _)
-                    naughty.destroy(notification)
-                    notification = naughty.notify {
-                        text = stdout,
-                        title = "Battery status",
-                        hover_timeout = 0.1,
-                    }
-                end)
-    end
 
     widget:connect_signal("mouse::enter", function()
-        show_battery_status()
+        naughty.destroy(notification)
+        notification = naughty.notify {
+            title = "Battery",
+            text = string.format("   %d%%", charge),
+            timeout = 5,
+            hover_timeout = 0.1,
+        }
     end)
     widget:connect_signal("mouse::leave", function()
         naughty.destroy(notification)
     end)
-
-    -- Alternative to naughty.notify - tooltip. You can compare both and choose the preferred one
-
-    --battery_popup = awful.tooltip({objects = {battery_widget}})
-
-    -- To use colors from beautiful theme put
-    -- following lines in rc.lua before require("battery"):
-    -- beautiful.tooltip_fg = beautiful.fg_normal
-    -- beautiful.tooltip_bg = beautiful.bg_normal
 
     --[[ Show warning notification ]]
     function show_battery_warning()

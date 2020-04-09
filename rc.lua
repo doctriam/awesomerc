@@ -167,7 +167,20 @@ awful.screen.connect_for_each_screen(function(s)
         awful.button({ }, 3, function () awful.layout.inc(-1) end),
         awful.button({ }, 4, function () awful.layout.inc( 1) end),
         awful.button({ }, 5, function () awful.layout.inc(-1) end)))
-    
+    local layoutnotification
+    s.mylayoutbox:connect_signal("mouse::enter", function()
+        naughty.destroy(layoutnotification)
+        layoutnotification = naughty.notify {
+            title = "Layouts",
+            text = "Modkey + Space or left-click on\nicon or press to swap layouts.",
+            timeout = 5,
+            hover_timeout = 0.1,
+        }
+    end)
+    s.mylayoutbox:connect_signal("mouse::leave", function()
+        naughty.destroy(layoutnotification)
+    end)
+
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen  = s,
@@ -242,6 +255,21 @@ awful.screen.connect_for_each_screen(function(s)
         shape_clilp = true,
         widget = wibox.container.background,
     }
+    
+    -- System tray label
+    local systraynotification
+    mysystray:connect_signal("mouse::enter", function()
+        naughty.destroy(systraynotification)
+        systraynotification = naughty.notify {
+            title = "System Tray",
+            text = "Click Modkey + '=' to toggle.\nOnly displays on primary screen.",
+            timeout = 5,
+            hover_timeout = 0.1,
+        }
+    end)
+    mysystray:connect_signal("mouse::leave", function()
+        naughty.destroy(systraynotification)
+    end)
     
     -- Create clock with calendar pop-up
     local mytextclock = wibox.widget.textclock()

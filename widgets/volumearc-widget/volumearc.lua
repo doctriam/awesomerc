@@ -39,6 +39,7 @@ local function worker(args)
     local inc_volume_cmd = args.inc_volume_cmd or INC_VOLUME_CMD
     local dec_volume_cmd = args.dec_volume_cmd or DEC_VOLUME_CMD
     local tog_volume_cmd = args.tog_volume_cmd or TOG_VOLUME_CMD
+    local volume
 
     local icon = {
         id = "icon",
@@ -61,7 +62,7 @@ local function worker(args)
 
     local update_graphic = function(widget, stdout, _, _, _)
         local mute = string.match(stdout, "%[(o%D%D?)%]")   -- \[(o\D\D?)\] - [on] or [off]
-        local volume = string.match(stdout, "(%d?%d?%d)%%") -- (\d?\d?\d)\%)
+        volume = string.match(stdout, "(%d?%d?%d)%%") -- (\d?\d?\d)\%)
         volume = tonumber(string.format("% 3d", volume))
 
         widget.value = volume / 100;
@@ -89,7 +90,8 @@ local function worker(args)
     volumearc:connect_signal("mouse::enter", function()
         naughty.destroy(notification)
         notification = naughty.notify {
-            text = "Volume",
+            title = "Volume",
+            text = string.format("   %d%%", volume),
             timeout = 5,
             hover_timout = 0.1,
         }

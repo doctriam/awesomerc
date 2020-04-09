@@ -31,6 +31,7 @@ local function worker(args)
     local color = args.color or beautiful.fg_color
     local bg_color = args.bg_color or '#ffffff11'
     local path_to_icon = args.path_to_icon or PATH_TO_ICON
+    local brightness_leveli
 
     local icon = {
         id = "icon",
@@ -53,7 +54,7 @@ local function worker(args)
     }
 
     local update_widget = function(widget, stdout)
-        local brightness_level = string.match(stdout, "(%d?%d?%d?)")
+        brightness_level = string.match(stdout, "(%d?%d?%d?)")
         brightness_level = tonumber(string.format("% 3d", brightness_level))
 
         widget.value = brightness_level / 100;
@@ -74,7 +75,8 @@ local function worker(args)
     widget:connect_signal("mouse::enter", function()
         naughty.destroy(notification)
         notification = naughty.notify {
-            text = "Brightness",
+            title = "Brightness",
+            text = string.format("       %d%%",brightness_level),
             timeout = 5,
             hover_timeout = 0.1,
         }
